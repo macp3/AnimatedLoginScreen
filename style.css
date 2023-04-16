@@ -1,0 +1,223 @@
+:root{
+    --color-dark: #361999;
+    --color-light: #78fff1;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(
+        to top right, 
+        var(--color-dark), 
+        var(--color-light)
+    );
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+form{
+    background: linear-gradient(
+        to left,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.35)
+    );
+    max-width: 300px;
+    padding: 36px 24px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form__input-container{
+    position: relative;
+    margin-bottom: 32px;
+}
+
+input, button{
+    background: linear-gradient(
+        to left,
+        rgba(255,255,255,0.01),
+        rgba(255,255,255,0.25)
+    );
+    border: none;
+    border-radius: 18px;
+    color: rgb(255,255,255);
+    padding: 12px 24px;
+    font-size: 21px;
+    box-shadow: 0 8px 24px 0 rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+input{
+    width: 100%;
+}
+
+label{
+    color: rgb(255,255,255);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 24px;
+    font-size: 21px;
+    font-style: italic;
+    opacity: 0.4;
+    cursor: text;
+}
+
+input:focus + label,
+input:not(:placeholder-shown)+label{
+    opacity: 0;
+}
+
+input:hover,
+button:hover{
+    box-shadow: 0px 8px 12px 0 rgba(0,0,0,0.3);
+}
+
+input:focus,
+button:focus{
+    outline: solid 3px rgba(255, 255, 255, 0.8);
+}
+
+button{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button:after{
+    background: rgba(255, 255, 255, 0.5);
+    content: " ";
+    display: block;
+    height: 100px;
+    left: -70px;
+    position: absolute;
+    top: -50px;
+    width: 50px;
+    transform: skewX(-15deg);
+    transition: left 0.15s linear;
+}
+
+button:hover:after{
+    left: 110%;
+}
+
+.form__icon{
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    border: solid 3px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 24px 0 rgba(0,0,0,0.15);
+    margin: 0 auto 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+.form__icon:before{
+    background: rgba(255, 255, 255, 0.55);
+    position: absolute;
+    width: 64px;
+    height: 24px;
+    bottom: 0;
+    display: block;
+    content: " ";
+    border-radius: 50%;
+}
+
+.form__icon:after{
+    background: rgba(255, 255, 255, 0.55);
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    bottom: 45%;
+    display: block;
+    content: " ";
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form__spacer{
+    height: 2px;
+    background: rgba(255, 255, 255, 0.55);
+    width: 80%;
+    margin: 0 auto 32px;
+    border-radius: 100%;
+}
+
+.bg{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.bg__dot{
+    background: linear-gradient(
+        to left,
+        var(--color-light),
+        rgba(255,255,255,0.3)
+    );
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+}
+
+.bg__dot:nth-child(1){
+    height: 50vh;
+    width: 50vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: move1 24s linear infinite;
+}
+
+.bg__dot:nth-child(2){
+    height: 30vh;
+    width: 30vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation: move2 35s linear infinite;
+}
+
+@keyframes move1{
+    from { 
+        transform: translateY(-50vh);
+    }
+    50%{
+        transform: translateY(110vh) translateX(30vw);
+    }
+    to { 
+        transform: translateY(-50vh) translateX(70vw);
+    }
+}
+
+@keyframes move2{
+    from { 
+        transform: translateY(50vh) translateX(30vh);
+    }
+    40% { 
+        transform: translateY(-100vh); 
+    }
+    70%{
+        transform: translateY(70vh) translateX(-30vh);
+    }
+    to {
+        transform: translateY(-20vh) translateX(65vw);
+    }
+}
